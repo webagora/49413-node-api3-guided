@@ -16,6 +16,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', checkHubId, (req, res) => {
+  // an earlier middleware had the hub
+  // and put it in the req object
   res.status(req.hub);
 });
 
