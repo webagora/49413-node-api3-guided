@@ -17,6 +17,9 @@ async function checkHubId(req, res, next) {
 }
 
 function validateHub(req, res, next) {
+  // if the client doest not supply a name for the new hub
+  // we want to respond with a 422 unprocessable entity
+  // otherwise proceed to next middleware
   console.log('what the heck!!!')
   next()
 }
