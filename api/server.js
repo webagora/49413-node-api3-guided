@@ -1,5 +1,5 @@
 const express = require('express'); // importing a CommonJS module
-
+const cors = require('cors')
 const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
