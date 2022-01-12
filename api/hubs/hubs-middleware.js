@@ -9,10 +9,10 @@ async function checkHubId(req, res, next) {
   try {
     const possibleHub = await Hub.findById(req.params.id)
     if (possibleHub) {
-      // ?
+      // ? good
     } else {
-      // ?
-      next
+      // ? bad
+      next({ status: 404, message: ``})
     }
   } catch (err) {
     next(err)
