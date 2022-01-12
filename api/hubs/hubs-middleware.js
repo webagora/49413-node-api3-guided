@@ -20,12 +20,12 @@ function validateHub(req, res, next) {
   // if the client doest not supply a name for the new hub
   // we want to respond with a 422 unprocessable entity
   // otherwise proceed to next middleware
-  const { name } = req.body
   try {
-    if (name && name.length > 4) {
-      next()
+    // const possibleHub = Hub.findById(req.params.id);
+    if (!req.body.name) {
+      next({ status: 422, message: 'unprocessable entity' })
     } else {
-      next({ status: 400, message: 'Sorry, you must to include a name variable in order to post' })
+      next()
     }
   } catch (err) {
     next(err)
