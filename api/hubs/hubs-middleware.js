@@ -17,7 +17,8 @@ async function checkHubId(req, res, next) {
 }
 
 function validateHub(req, res, next) {
-
+  console.log('what the heck!!!')
+  next()
 }
 
 module.exports = {
