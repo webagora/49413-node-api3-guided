@@ -21,13 +21,13 @@ function validateHub(req, res, next) {
   // we want to respond with a 422 unprocessable entity
   // otherwise proceed to next middleware
   const { hubName } = req.body
-  try{
-    if( hubName ){
+  try {
+    if (hubName) {
       next()
     } else {
-      next({ status: 400, message: 'Sorry, you must to include a name variable in order to post'})
+      next({ status: 400, message: 'Sorry, you must to include a name variable in order to post' })
     }
-  } catch(err){
+  } catch (err) {
     next(err)
   }
 }
