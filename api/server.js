@@ -4,6 +4,8 @@ const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
+server.use(cors()) // cors() returns a (req, res, nex) => { // stuff and then next() }
+
 server.use(express.json());
 
 server.use((req, res, next) => {
