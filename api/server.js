@@ -17,7 +17,7 @@ server.use((req, res, next) => {
   // calling next without args allows the req,res,next to flow to the next middleware
   // next() // we never needed to call next because our endpoints were "the end of the line"
 
-  next({ message: 'this is horrible'})
+  next({ message: 'this is horrible'}) // sends this object to the closest error-handling middleware
 })
 
 server.use('/api/hubs', hubsRouter);
