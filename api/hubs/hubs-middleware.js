@@ -22,7 +22,7 @@ function validateHub(req, res, next) {
   // otherwise proceed to next middleware
   const { name } = req.body
   try {
-    if (name) {
+    if (name && name.length > 4) {
       next()
     } else {
       next({ status: 400, message: 'Sorry, you must to include a name variable in order to post' })
