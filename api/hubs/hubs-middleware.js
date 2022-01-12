@@ -7,7 +7,7 @@ async function checkHubId(req, res, next) {
   // if it is, next()
   // if it doesn't, next('dat no exist!)
   try {
-    
+    const possibleHub = await Hub.findById(req.params.id)
   } catch (err) {
     next(err)
   }
