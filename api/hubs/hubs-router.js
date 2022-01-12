@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   Hubs.find(req.query)
     .then(hubs => {
-      res.status(200).json(hubs);
+      res.status(201).json(hubs);
     })
     .catch(error => {
       // log error to server
