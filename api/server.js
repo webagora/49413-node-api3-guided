@@ -16,9 +16,9 @@ server.use((req, res, next) => {
   res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
   // calling next without args allows the req,res,next to flow to the next middleware
   req.foo = 'bar'
-  // next() // we never needed to call next because our endpoints were "the end of the line"
+  next() // we never needed to call next because our endpoints were "the end of the line"
 
-  next({ status: 422, message: 'this is horrible'}) // sends this object to the closest error-handling middleware
+  // next({ status: 422, message: 'this is horrible'}) // sends this object to the closest error-handling middleware
 })
 
 server.use('/api/hubs', hubsRouter);
