@@ -52,7 +52,7 @@ router.put('/:id', checkHubId, (req, res, next) => {
 });
 
 router.get('/:id/messages', checkHubId, (req, res, next) => {
-  Hubs.findHubMessages(req.hub.id)
+  Hubs.findHubMessages(req.hub.id) // just to demo that we tacked the hub to the req
     .then(messages => {
       res.status(200).json(messages);
     })
