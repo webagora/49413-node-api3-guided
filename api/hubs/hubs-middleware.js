@@ -12,6 +12,7 @@ async function checkHubId(req, res, next) {
       // ?
     } else {
       // ?
+      next
     }
   } catch (err) {
     next(err)
