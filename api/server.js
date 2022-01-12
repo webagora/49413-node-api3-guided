@@ -15,7 +15,7 @@ server.use((req, res, next) => {
   res.set('X-Web-49', 'Rocks') // setting a header on the response
   res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
   // calling next without args allows the req,res,next to flow to the next middleware
-  // next() // we never needed to call next because our endpoints were "the end of the line"
+  next() // we never needed to call next because our endpoints were "the end of the line"
 
   // next({ status: 422, message: 'this is horrible'}) // sends this object to the closest error-handling middleware
 })
