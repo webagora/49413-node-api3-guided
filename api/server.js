@@ -9,7 +9,13 @@ server.use(express.json());
 server.use((req, res, next) => {
   // here we can do whatever:
   // 1- respond to clients
-  res.json('foobar')
+  // 2- simply allow the request to flow to the next middleware
+  console.log('the req flowed through our custom middleware')
+  res.set('X-Web-49', 'Rocks') // setting a header on the response
+  res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
+  // calling next without args allows the req,res,next to flow to the next middleware
+  req.foo = 'bar'
+  next() // we never needed to call next because our endpoints were "the end of the line"
 })
 
 server.use('/api/hubs', hubsRouter);
