@@ -35,7 +35,8 @@ server.use('*', (req, res) => {
 });
 
 server.use((err, req, res, next) => {
-  
+  console.log('disaster!')
+  res.status(err.status || 500).json()
 })
 
 module.exports = server;
