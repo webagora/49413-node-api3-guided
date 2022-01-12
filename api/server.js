@@ -10,7 +10,8 @@ server.use((req, res, next) => {
   // here we can do whatever:
   // 1- respond to clients
   // 2- simply allow the request to flow to the next middleware
-  console.log('')
+  console.log('the req flowed through our custom middleware')
+  next()
 })
 
 server.use('/api/hubs', hubsRouter);
