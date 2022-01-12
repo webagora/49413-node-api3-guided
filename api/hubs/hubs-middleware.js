@@ -4,9 +4,10 @@ function checkHubId(req, res, next) {
   // make sure the id is "real"
   // if it is, next()
   // if it doesn't, next('dat no exist!)
+  console.log('checking hub id!')
+  next()
 }
 
-
 module.exports = {
-
+  checkHubId,
 }
