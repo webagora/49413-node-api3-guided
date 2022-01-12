@@ -14,7 +14,10 @@ server.use((req, res, next) => {
   console.log('the req flowed through our custom middleware')
   res.set('X-Web-49', 'Rocks') // setting a header on the response
   res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
-  next() // we never needed to call next because our endpoints were "the end of the line"
+  // calling next without args allows the req,res,next to flow to the next middleware
+  // next() // we never needed to call next because our endpoints were "the end of the line"
+
+  next({ message: 'this is horrible'})
 })
 
 server.use('/api/hubs', hubsRouter);
