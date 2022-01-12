@@ -45,21 +45,17 @@ router.delete('/:id', checkHubId, (req, res, next) => {
     });
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', checkHubId, (req, res, next) => {
   Hubs.update(req.params.id, req.body)
     .then(hub => {
-      if (hub) {
-        res.status(200).json(hub);
-      } else {
-        res.status(404).json({ message: 'The hub could not be found' });
-      }
+      res.status(200).json(hub);
     })
     .catch(error => {
       next(error)
     });
 });
 
-router.get('/:id/messages', (req, res, next) => {
+router.get('/:id/messages', checkHubId, (req, res, next) => {
   Hubs.findHubMessages(req.params.id)
     .then(messages => {
       res.status(200).json(messages);
@@ -67,7 +63,7 @@ router.get('/:id/messages', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/:id/messages', (req, res, next) => {
+router.post('/:id/messages', checkHubId, (req, res, next) => {
   const messageInfo = { ...req.body, hub_id: req.params.id };
 
   Messages.add(messageInfo)
