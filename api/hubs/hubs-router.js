@@ -72,9 +72,7 @@ router.get('/:id/messages', (req, res, next) => {
     .then(messages => {
       res.status(200).json(messages);
     })
-    .catch(error => {
-      next(error)
-    });
+    .catch(next);
 });
 
 router.post('/:id/messages', (req, res, next) => {
