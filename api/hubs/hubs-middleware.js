@@ -16,6 +16,11 @@ async function checkHubId(req, res, next) {
   }
 }
 
+function validateHub(req, res, next) {
+
+}
+
 module.exports = {
   checkHubId,
+  validateHub,
 }
