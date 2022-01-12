@@ -18,11 +18,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', checkHubId, (req, res, next) => {
   Hubs.findById(req.params.id)
     .then(hub => {
-      if (hub) {
-        res.status(200).json(hub);
-      } else {
-        res.status(404).json({ message: 'Hub not found' });
-      }
+      res.status(200).json(hub);
     })
     .catch(error => {
       next(error)
