@@ -6,13 +6,13 @@ const server = express();
 
 server.use(express.json());
 
+server.use('/api/hubs', hubsRouter);
+
 server.use((req, res, next) => {
   // here we can do whatever:
   // respond to clients
   res.json('foobar')
 })
-
-server.use('/api/hubs', hubsRouter);
 
 server.get('/', (req, res) => {
   res.send(`
