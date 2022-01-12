@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', checkHubId, (req, res, next) => {
+  console.log('********', req.foo)
   Hubs.findById(req.params.id)
     .then(hub => {
       res.status(200).json(hub);
