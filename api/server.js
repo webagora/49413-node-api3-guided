@@ -12,7 +12,7 @@ server.use((req, res, next) => {
   // 2- simply allow the request to flow to the next middleware
   console.log('the req flowed through our custom middleware')
   res.set('X-Web-49', 'Rocks') // setting a header
-  res.set('Set-Cookie', 'foo=bar')
+  res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
   next()
 })
 
