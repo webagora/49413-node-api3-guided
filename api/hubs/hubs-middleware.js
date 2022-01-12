@@ -12,7 +12,7 @@ async function checkHubId(req, res, next) {
       // ? good
     } else {
       // ? bad
-      next({ status: 404, message: ``})
+      next({ status: 404, message: `No Hub ${req.params.id}`})
     }
   } catch (err) {
     next(err)
