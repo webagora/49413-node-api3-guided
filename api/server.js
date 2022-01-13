@@ -13,9 +13,9 @@ server.use((req, res, next) => {
   // 3- respond with an error
   console.log('the req flowed through our custom middleware')
   res.set('X-Web-49', 'Rocks') // setting a header on the response
-  res.set('Set-Cookie', 'foo=baroooo') // setting a cookie on the browser
+  res.set('Set-Cookie', 'foo=bar') // setting a cookie on the browser
   // calling next without args allows the req,res,next to flow to the next middleware
-  req.foo = 'barrrr'
+  req.foo = 'bar'
   next() // we never needed to call next because our endpoints were "the end of the line"
 
   // next({ status: 422, message: 'this is horrible'}) // sends this object to the closest error-handling middleware

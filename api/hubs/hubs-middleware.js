@@ -9,6 +9,8 @@ async function checkHubId(req, res, next) {
     try {
         const possibleHub = await Hub.findById(req.params.id)
         if (possibleHub) {
+            // we already have the hub
+            req.hub = possibleHub
             next()
         } else {
             // send an error to the err handling middleware in server.js
