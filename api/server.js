@@ -1,8 +1,10 @@
 const express = require('express'); // importing a CommonJS module
-
+const cors = require('cors')
 const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
+
+server.use(cors()) // cors() returns a (req, res, nex) => { // stuff and then next() }
 
 server.use(express.json());
 
@@ -38,7 +40,7 @@ server.use('*', (req, res) => {
 server.use((err, req, res, next) => { // eslint-disable-line
   console.log('disaster!')
   res.status(err.status || 500).json({
-    message: `The Horror - ${err.message}`,
+    message: `The Horror: ${err.message}`,
   })
 })
 

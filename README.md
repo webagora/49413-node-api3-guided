@@ -23,4 +23,6 @@ npm i -g npm-check-updates
 ncu 
 ncu -u
 ncu -g
+
+npm install cors
 ```
