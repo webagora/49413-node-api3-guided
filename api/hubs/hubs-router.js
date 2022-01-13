@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { checkHubId } = require('./hubs-middleware')
 const Hubs = require('./hubs-model.js');
 const Messages = require('../messages/messages-model.js');
 
@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', checkHubId, (req, res, next) => {
   Hubs.findById(req.params.id)
     .then(hub => {
       if (hub) {
